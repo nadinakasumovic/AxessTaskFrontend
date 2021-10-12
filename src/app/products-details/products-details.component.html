@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 style="margin-left: 2%;margin-top: 2%">Product details:</h3>
+      <br/>
+      <span><span style="font-weight: bold">Product name: </span>{{product.productName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Quantity per unit: </span>{{product.quantityPerUnit}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Unit price: </span>{{product.unitPrice}}$</span>
+      <br/>
+      <span><span style="font-weight: bold">Units in stock: </span>{{product.unitsInStock}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Reorder level: </span>{{product.reorderLevel}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Discontinued: </span>{{product.discontinued}}</span>
+    </div>
+    <div class="col-sm">
+      <h3 style="margin-left: 2%;margin-top: 2%">Supplier info:</h3>
+      <br/>
+        <span><span style="font-weight: bold">Company name: </span>{{product.supplier.companyName}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Contact name: </span>{{product.supplier.contactName}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Contact title: </span>{{product.supplier.contactTitle}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Adress: </span>{{product.supplier.address}}</span>
+        <br/>
+        <span><span style="font-weight: bold">City: </span>{{product.supplier.city}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Region: </span>{{product.supplier.region}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Postal code: </span>{{product.supplier.postalCode}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Country: </span>{{product.supplier.country}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Phone: </span>{{product.supplier.phone}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Fax: </span>{{product.supplier.fax}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Home page: </span>{{product.supplier.homePage}}</span>
+    </div>
+    <div class="col-sm">
+      <h3 style="margin-left: 2%;margin-top: 2%">Category info:</h3>
+      <br/>
+        <div style="border:2px;border-color: darkgrey;">
+          <img [src]="imagePath"/>
+        </div>
+        <br/>
+        <span><span style="font-weight: bold">Category name: </span>{{product.category.categoryName}}</span>
+        <br/>
+        <span><span style="font-weight: bold">Description: </span>{{product.category.description}}</span>
+      <br/>
+    </div>
+  </div>
+</div>
