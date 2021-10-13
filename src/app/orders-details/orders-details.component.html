@@ -1,0 +1,161 @@
+<h4 style="margin-left: 2%;margin-top: 1%">Order contents:</h4>
+<br/>
+<table class="table table-hover" style="margin-left: auto;width: 85%;margin-right: auto;margin-top: 2%;margin-bottom: 2%;">
+  <thead>
+    <tr>
+      <td>Product name</td>
+      <td>Category</td>
+      <td>Supplier name</td>
+      <td style="text-align: center;">Quantity</td>
+      <td style="text-align: center;">Price</td>
+      <td style="text-align: center;">Discount</td>
+      <td style="text-align: center;">Action</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let orderDetail of orderDetails">
+      <td>{{orderDetail.product.productName}}</td>
+      <td>{{orderDetail.product.category.categoryName}}</td>
+      <td>{{orderDetail.product.supplier.companyName}}</td>
+      <td style="text-align: center;">{{orderDetail.quantity}}</td>
+      <td style="text-align: center;">{{orderDetail.unitPrice}}</td>
+      <td style="text-align: center;">{{orderDetail.discount*100}}%</td>
+      <td style="text-align: center;"><a href="products/{{orderDetail.productID}}" class="btn btn-primary" style="background-color: darkgrey;border-color: darkgrey;">Product details</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<button *ngIf="!showDetails" class="btn btn-primary" style="background-color: darkgrey;border-color: darkgrey;margin-left: 7.5%;width: 85%;" (click)="GetOrderDetails()">Show order details</button>
+
+<div *ngIf="showDetails" class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h3 style="margin-left: 2%;margin-top: 2%">Order details:</h3>
+      <br/>
+      <span><span style="font-weight: bold">Order date: </span>{{order.orderDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Required date: </span>{{order.requiredDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Shipped date: </span>{{order.shippedDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Freight: </span>{{order.freight}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Ship name: </span>{{order.shipName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Ship address: </span>{{order.shipAddress}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Ship city: </span>{{order.shipCity}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Ship region: </span>{{order.shipRegion}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Ship postal code: </span>{{order.shipPostalCode}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Ship country: </span>{{order.shipCountry}}</span>
+    </div>
+    <div class="col-sm">
+      <h3 style="margin-left: 2%;margin-top: 2%">Customer info:</h3>
+      <br/>
+      <span><span style="font-weight: bold">Company name: </span>{{order.customer.companyName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Contact name: </span>{{order.customer.contactName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Contact title: </span>{{order.customer.contactTitle}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Adress: </span>{{order.customer.address}}</span>
+      <br/>
+      <span><span style="font-weight: bold">City: </span>{{order.customer.city}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Region: </span>{{order.customer.region}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Postal code: </span>{{order.customer.postalCode}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Country: </span>{{order.customer.country}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Phone: </span>{{order.customer.phone}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Fax: </span>{{order.customer.fax}}</span>
+    </div>
+    <div class="col-sm" style="padding-bottom: 1%">
+      <h3 style="margin-left: 2%;margin-top: 2%">Employee info:</h3>
+      <br/>
+      <div style="border:2px;border-color: darkgrey;">
+        <img [src]="imagePath" style="margin-left: 1%; width: 85%;"/>
+      </div>
+      <br/>
+      <span><span style="font-weight: bold">Last name: </span>{{order.employee.lastName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">First name: </span>{{order.employee.firstName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Title: </span>{{order.employee.title}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Title of courtesy: </span>{{order.employee.titleOfCourtesy}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Birth date: </span>{{order.employee.birthDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Hire date: </span>{{order.employee.hireDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Address: </span>{{order.employee.address}}</span>
+      <br/>
+      <span><span style="font-weight: bold">City: </span>{{order.employee.city}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Region: </span>{{order.employee.region}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Postal code: </span>{{order.employee.postalCode}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Home phone: </span>{{order.employee.homePhone}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Extension: </span>{{order.employee.extension}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Notes: </span>{{order.employee.notes}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Photo path: </span>{{order.employee.photoPath}}</span>
+      <br/>
+      <h3 style="margin-left: 2%;margin-top: 2%">Employee {{order.employee.firstName}} {{order.employee.lastName}} reports to: </h3>
+      <br/>
+      <button *ngIf="!showReport" class="btn btn-primary" style="background-color: darkgrey;border-color: darkgrey;width: 100%" (click)="GetReportsToDetails()">Show who the employee reports to</button>
+      <div *ngIf="showReport">
+        <div style="border:2px;border-color: darkgrey;">
+          <br/>
+        <img [src]="employeeImagePath" style="margin-left: 1%; width: 85%;"/>
+      </div>
+      <br/>
+      <span><span style="font-weight: bold">Last name: </span>{{reportsTo.lastName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">First name: </span>{{reportsTo.firstName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Title: </span>{{reportsTo.title}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Title of courtesy: </span>{{reportsTo.titleOfCourtesy}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Birth date: </span>{{reportsTo.birthDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Hire date: </span>{{reportsTo.hireDate}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Address: </span>{{reportsTo.address}}</span>
+      <br/>
+      <span><span style="font-weight: bold">City: </span>{{reportsTo.city}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Region: </span>{{reportsTo.region}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Postal code: </span>{{reportsTo.postalCode}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Home phone: </span>{{reportsTo.homePhone}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Extension: </span>{{reportsTo.extension}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Notes: </span>{{reportsTo.notes}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Photo path: </span>{{reportsTo.photoPath}}</span>
+      <br/>
+    </div>
+    </div>
+    <br/>
+    <div class="col-sm">
+      <h3 style="margin-left: 2%;margin-top: 2%">Ship via info:</h3>
+      <br/>
+      <span><span style="font-weight: bold">Company name: </span>{{order.shipVia.companyName}}</span>
+      <br/>
+      <span><span style="font-weight: bold">Phone: </span>{{order.shipVia.phone}}</span>
+    </div>
+  </div>
+</div>

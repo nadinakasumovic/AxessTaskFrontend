@@ -20,8 +20,6 @@ export class ProductsDetailsComponent implements OnInit {
   async ngOnInit() {
     this.id = this._Activatedroute.snapshot.paramMap.get("id");
     await this.GetByID();
-    //this.imagePath = window.URL.createObjectURL(new Blob([this.product.category.picture],{type:'image/png'}))
-
   }
 
   GetByID(){
