@@ -1,3 +1,7 @@
+# Instructions
+
+It is necessary to install all the required dependencies before running the app. In the myconfig.ts file change the port of the API to your own.
+
 # TaskFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
